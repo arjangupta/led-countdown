@@ -2,7 +2,6 @@ var days = 0;
 var hours = 0;
 var minutes = 0;
 var seconds = 25;
-// var totalRepeats = (seconds * 1000) + 
 
 function showTime(){
 
@@ -32,6 +31,7 @@ function showTime(){
 
 var countdown = setInterval(function(){
 
+    seconds = seconds - 1;
     showTime();
 
 }, 1000);
