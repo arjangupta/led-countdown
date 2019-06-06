@@ -8,19 +8,7 @@
 </head>
 <body onload="showTime()">
     <div id="MyClockDisplay" class="clock">
-        <script>
-            var spacebarFirstPress = true;
-            
-            document.body.onkeyup = function(e) {
-                if (e.keyCode == 32) { //32 is keyCode for spacebar
-                    if (spacebarFirstPress == true)
-                    {
-                        spacebarFirstPress = false;
-                        startCountdown();
-                    }
-                }
-            }
-        </script>
+        <script>startCountdown()</script>
     </div>
 </body>
 </html>

@@ -38,21 +38,26 @@ function showTime() {
 
 function startCountdown() {
 
-    var countdown = setInterval(function() {
-
-        if (seconds > 0) {
-            --seconds;
-        } else if (seconds == 0 && minutes > 0) {
-            seconds = 59;
-            --minutes;
-        } else if (seconds == 0 && minutes == 0 && hours > 0) {
-            seconds = 59;
-            minutes = 59;
-            --hours;
+    var spacebarToggle = false; 
+    document.body.onkeyup = function(e) {
+        if (e.keyCode == 32) { //32 is keyCode for spacebar
+            spacebarToggle = !spacebarToggle; //start, pause, or resume the countdown
         }
-        
-        showTime();
+    }
 
+    var countdown = setInterval(function() {
+        if (spacebarToggle) {
+            if (seconds > 0) {
+                --seconds;
+            } else if (seconds == 0 && minutes > 0) {
+                seconds = 59;
+                --minutes;
+            } else if (seconds == 0 && minutes == 0 && hours > 0) {
+                seconds = 59;
+                minutes = 59;
+                --hours;
+            }   
+            showTime();
+        }
     }, 1000);
-    
 }
