@@ -1,37 +1,48 @@
-var days = 0;
 var hours = 0;
 var minutes = 0;
 var seconds = 25;
 
-function showTime(){
+function showTime() {
+    var shown_hours   = " ";
+    var shown_minutes = " ";
+    var shown_seconds = " ";
 
     if (hours == 0) {
-        hours = "00";
+        shown_hours = "00";
     } else if (hours < 10 && hours.toString()[0] != "0") {
-        hours = "0" + hours;
-    } 
+        shown_hours = "0" + hours;
+    } else {
+        shown_hours = hours.toString();
+    }
     
     if (minutes == 0) {
-        minutes = "00";
+        shown_minutes = "00";
     } else if (minutes < 10 && minutes.toString()[0] != "0") {
-        minutes = "0" + minutes;
+        shown_minutes = "0" + minutes;
+    } else {
+        shown_minutes = minutes.toString();
     }
 
     if (seconds == 0) {
-        seconds = "00";
+        shown_seconds = "00";
     }
     else if (seconds < 10 && seconds.toString()[0] != "0") {
-        seconds = "0" + seconds;
+        shown_seconds = "0" + seconds;
+    } else {
+        shown_seconds = seconds.toString();
     }
     
-    var time = hours + ":" + minutes + ":" + seconds;
+    var time = shown_hours + ":" + shown_minutes + ":" + shown_seconds;
     document.getElementById("MyClockDisplay").innerText = time;
 
 }
 
-var countdown = setInterval(function(){
+var countdown = setInterval(function() {
 
-    seconds = seconds - 1;
+    if (seconds > 0) {
+        --seconds;
+    }
+    
     showTime();
 
 }, 1000);
