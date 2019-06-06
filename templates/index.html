@@ -7,6 +7,8 @@
     <script type="text/javascript" src="{{ url_for('static', filename='show_time.js') }}"></script>
 </head>
 <body onload="showTime()">
-    <div id="MyClockDisplay" class="clock"></div>
+    <div id="MyClockDisplay" class="clock">
+        <script>startCountdown()</script>
+    </div>
 </body>
 </html>

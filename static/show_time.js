@@ -36,19 +36,23 @@ function showTime() {
     document.getElementById("MyClockDisplay").innerText = time;
 }
 
-var countdown = setInterval(function() {
+function startCountdown() {
 
-    if (seconds > 0) {
-        --seconds;
-    } else if (seconds == 0 && minutes > 0) {
-        seconds = 59;
-        --minutes;
-    } else if (seconds == 0 && minutes == 0 && hours > 0) {
-        seconds = 59;
-        minutes = 59;
-        --hours;
-    }
+    var countdown = setInterval(function() {
+
+        if (seconds > 0) {
+            --seconds;
+        } else if (seconds == 0 && minutes > 0) {
+            seconds = 59;
+            --minutes;
+        } else if (seconds == 0 && minutes == 0 && hours > 0) {
+            seconds = 59;
+            minutes = 59;
+            --hours;
+        }
+        
+        showTime();
+
+    }, 1000);
     
-    showTime();
-
-}, 1000);
+}
