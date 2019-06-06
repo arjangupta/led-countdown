@@ -33,7 +33,7 @@ function showTime() {
     }
     
     var time = shown_hours + ":" + shown_minutes + ":" + shown_seconds;
-    document.getElementById("MyClockDisplay").innerText = time;
+    document.getElementById("clockDisplay").innerText = time;
 }
 
 function startCountdown() {
