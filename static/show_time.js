@@ -1,23 +1,37 @@
+var days = 0;
+var hours = 0;
+var minutes = 0;
+var seconds = 25;
+// var totalRepeats = (seconds * 1000) + 
+
 function showTime(){
-    var date = new Date();
-    var h = date.getHours(); // 0 - 23
-    var m = date.getMinutes(); // 0 - 59
-    var s = date.getSeconds(); // 0 - 59
+
+    if (hours == 0) {
+        hours = "00";
+    } else if (hours < 10 && hours.toString()[0] != "0") {
+        hours = "0" + hours;
+    } 
     
-    if(h == 0){
-        h = 12;
+    if (minutes == 0) {
+        minutes = "00";
+    } else if (minutes < 10 && minutes.toString()[0] != "0") {
+        minutes = "0" + minutes;
+    }
+
+    if (seconds == 0) {
+        seconds = "00";
+    }
+    else if (seconds < 10 && seconds.toString()[0] != "0") {
+        seconds = "0" + seconds;
     }
     
-    h = (h < 10) ? "0" + h : h;
-    m = (m < 10) ? "0" + m : m;
-    s = (s < 10) ? "0" + s : s;
-    
-    var time = h + ":" + m + ":" + s;
+    var time = hours + ":" + minutes + ":" + seconds;
     document.getElementById("MyClockDisplay").innerText = time;
-    document.getElementById("MyClockDisplay").textContent = time;
-    
-    setTimeout(showTime, 1000);
-    
+
 }
 
-showTime();
+var countdown = setInterval(function(){
+
+    showTime();
+
+}, 1000);
