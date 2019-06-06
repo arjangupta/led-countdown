@@ -1,6 +1,6 @@
-var hours = 0;
+var hours = 1;
 var minutes = 0;
-var seconds = 25;
+var seconds = 5;
 
 function showTime() {
     var shown_hours   = " ";
@@ -34,13 +34,19 @@ function showTime() {
     
     var time = shown_hours + ":" + shown_minutes + ":" + shown_seconds;
     document.getElementById("MyClockDisplay").innerText = time;
-
 }
 
 var countdown = setInterval(function() {
 
     if (seconds > 0) {
         --seconds;
+    } else if (seconds == 0 && minutes > 0) {
+        seconds = 59;
+        --minutes;
+    } else if (seconds == 0 && minutes == 0 && hours > 0) {
+        seconds = 59;
+        minutes = 59;
+        --hours;
     }
     
     showTime();
