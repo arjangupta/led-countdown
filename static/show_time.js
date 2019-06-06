@@ -1,24 +1,24 @@
 function showTime(){
     var date = new Date();
-    var hours = date.getHours();
-    var minutes = date.getMinutes();
-    var seconds = date.getSeconds();
-    var ampm = "AM";
+    var h = date.getHours(); // 0 - 23
+    var m = date.getMinutes(); // 0 - 59
+    var s = date.getSeconds(); // 0 - 59
+    var session = "AM";
     
-    if (hours == 0) {
-        hours = 12;
+    if(h == 0){
+        h = 12;
     }
     
-    if (hours > 12) {
-        hours = hours - 12;
-        ampm = "PM";
+    if(h > 12){
+        h = h - 12;
+        session = "PM";
     }
     
-    hours = (hours < 10) ? "0" + hours: hours;
-    minutes= (minutes < 10) ? "0" + minutes: m;
-    seconds = (seconds < 10) ? "0" + seconds: s;
+    h = (h < 10) ? "0" + h : h;
+    m = (m < 10) ? "0" + m : m;
+    s = (s < 10) ? "0" + s : s;
     
-    var time = hours + ":" + minutes + ":" + seconds + " " + ampm;
+    var time = h + ":" + m + ":" + s + " " + session;
     document.getElementById("MyClockDisplay").innerText = time;
     document.getElementById("MyClockDisplay").textContent = time;
     
