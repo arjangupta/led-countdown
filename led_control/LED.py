@@ -6,7 +6,7 @@ green_led_pin_number = 13
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.setup(red_led_pin_number, GPIO.OUT)
-GPIO.set(green_led_pin_number, GPIO.OUT)
+GPIO.setup(green_led_pin_number, GPIO.OUT)
 
 def red_led_on():
     GPIO.output(red_led_pin_number, GPIO.HIGH)
