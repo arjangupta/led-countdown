@@ -1,6 +1,6 @@
 var hours = 1;
 var minutes = 0;
-var seconds = 5;
+var seconds = 0;
 
 function showTime() {
     var shown_hours   = " ";
@@ -39,19 +39,14 @@ function showTime() {
 function startCountdown() {
     var socket = io.connect('http://' + document.domain + ':' + location.port);
 
-    var spacebarToggle = false; 
+    var spacebarToggle = false;
+    var redLedOn = false;
     document.body.onkeyup = function(e) {
         if (e.keyCode == 32) { //32 is keyCode for spacebar
-            alert("spaceBarToggle");
             spacebarToggle = !spacebarToggle; //start, pause, or resume the countdown
-        }
-    }
-    
-    var enterToggle = false;
-    document.body.onkeyup = function(e) {
-        if (e.keyCode == 13) { //13 is keyCode for enter
-            enterToggle = !enterToggle;
-            socket.emit("toggleLED", enterToggle);
+        } else if (e.keyCode == 13) {
+            redLedOn = !redLedOn;
+            socket.emit("toggleLED", redLedOn);
         }
     }
 
