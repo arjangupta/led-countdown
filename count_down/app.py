@@ -10,4 +10,6 @@ def index():
     return render_template('index.html')
 
 if __name__ == '__main__':
+    #led.red_led_off()
+    #led.green_led_off()
     app.run(debug=True, host='0.0.0.0')

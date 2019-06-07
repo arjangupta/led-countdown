@@ -44,6 +44,14 @@ function startCountdown() {
             spacebarToggle = !spacebarToggle; //start, pause, or resume the countdown
         }
     }
+    
+    var enterToggle = false;
+    document.body.onkeyup = function(e) {
+        if (e.keyCode == 13) { //13 is keyCode for enter
+            enterToggle = !enterToggle;
+            //socket.emit('toggleLED', enterToggle);
+        }
+    }
 
     var countdown = setInterval(function() {
         if (spacebarToggle) {
