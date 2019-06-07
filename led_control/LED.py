@@ -1,17 +1,21 @@
 import RPi.GPIO as GPIO
-import time
 
-anode_pin_number = 21
+red_led_pin_number   = 21
+green_led_pin_number = 13
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
-GPIO.setup(anode_pin_number, GPIO.OUT)
+GPIO.setup(red_led_pin_number, GPIO.OUT)
+GPIO.set(green_led_pin_number, GPIO.OUT)
 
-print("Turning LED " + str(anode_pin_number) + " on")
+def red_led_on():
+    GPIO.output(red_led_pin_number, GPIO.HIGH)
 
-GPIO.output(anode_pin_number, GPIO.HIGH)
-time.sleep(1)
+def red_led_off():
+    GPIO.output(red_led_pin_number, GPIO.LOW)
 
-print("turning LED off")
+def green_led_on():
+    GPIO.output(green_led_pin_number, GPIO.HIGH)
 
-GPIO.output(anode_pin_number, GPIO.LOW)
+def green_led_off():
+    GPIO.output(green_led_pin_number, GPIO.LOW)
