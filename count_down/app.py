@@ -12,6 +12,15 @@ socketio = SocketIO(app)
 def index():
     return render_template('index.html')
 
+@socketio.on('toggleLED')
+def toggle_leds(toggle):
+    if (toggle):
+        led.red_led_on()
+        led.green_led_off()
+    else:
+        led.red_led_off()
+        led.green_led_on()
+
 if __name__ == '__main__':
     #led.red_led_off()
     #led.green_led_off()

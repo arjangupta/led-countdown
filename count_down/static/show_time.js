@@ -37,10 +37,12 @@ function showTime() {
 }
 
 function startCountdown() {
+    var socket = io.connect('http://' + document.domain + ':' + location.port);
 
     var spacebarToggle = false; 
     document.body.onkeyup = function(e) {
         if (e.keyCode == 32) { //32 is keyCode for spacebar
+            alert("spaceBarToggle");
             spacebarToggle = !spacebarToggle; //start, pause, or resume the countdown
         }
     }
@@ -49,7 +51,7 @@ function startCountdown() {
     document.body.onkeyup = function(e) {
         if (e.keyCode == 13) { //13 is keyCode for enter
             enterToggle = !enterToggle;
-            //socket.emit('toggleLED', enterToggle);
+            socket.emit("toggleLED", enterToggle);
         }
     }
 
