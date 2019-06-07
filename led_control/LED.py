@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 
-red_led_pin_number   = 21
-green_led_pin_number = 13
+red_led_pin_number   = 13
+green_led_pin_number = 21
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
